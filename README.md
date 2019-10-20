@@ -1,0 +1,1 @@
+# motorun-yaptigi-dalga-kopurtmesi
