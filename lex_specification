@@ -1,14 +1,73 @@
 %option main
 
+start start
+finish finish
 
 digit [0-9]
+double_value [0-9]+\.[0-9]+
+string string
+string_text \"[A-Za-z\!\‘\^\#\+\$\%\&\/\{\(\[\)\]\=\?\*\\\-\“\|\:\. ]*\"
+comment_text \#[A-Za-z\!\‘\^\#\+\$\%\&\/\{\(\[\)\]\=\?\*\\\-\“\|\:\. ]*\#
 number [0-9]+
-identifier [a-z][a-z_]*
+identifier [a-z][a-z_0-9]*
 
 plus \+
 minus \-
 multiply \*
 divide \/
+comma \,
+and \&
+and_relation \&\&
+or \|
+or_relation \|\|
+
+if if
+else else
+for for
+in in
+where where
+with with
+while while
+
+func func
+return_stmt return
+read_temp read_temp
+read_humidity read_humidity
+read_air_pressure read_air_pressure
+read_air_quality read_air_quality
+read_light read_light
+read_sound_level read_sound_level
+read_timer read_timer
+send_int send_int
+read_int read_int
+connect connect
+
+switchon1 SwitchON1
+switchon2 SwitchON2
+switchon3 SwitchON3
+switchon4 SwitchON4
+switchon5 SwitchON5
+switchon6 SwitchON6
+switchon7 SwitchON7
+switchon8 SwitchON8
+switchon9 SwitchON9
+switchon10 SwitchON10
+
+switchoff1 SwitchOFF1
+switchoff2 SwitchOFF2
+switchoff3 SwitchOFF3
+switchoff4 SwitchOFF4
+switchoff5 SwitchOFF5
+switchoff6 SwitchOFF6
+switchoff7 SwitchOFF7
+switchoff8 SwitchOFF8
+switchoff9 SwitchOFF9
+switchoff10 SwitchOFF10
+
+array array
+int int
+double double
+connection connection
 
 lp \(
 rp \)
@@ -16,21 +75,80 @@ lsb \[
 rsb \]
 lbrace \{
 rbrace \}
-comment \#
+
+block_start \/\/
+block_end \\\\
 
 less \<
 greater \>
 less_eq (<=)
-greater_eq(>=)
+greater_eq (>=)
 equal \=
-
 %%
 
+{start} printf("START");
+{finish} printf("FINISH");
 
-if printf("IF");
-else printf("ELSE");
-for printf("FOR");
-while printf("WHILE");
+{block_start} printf("BLOCK_START");
+{block_end} printf("BLOCK_END");
+
+
+{if} printf("IF");
+{else} printf("ELSE");
+{for} printf("FOR");
+{in} printf("IN");
+{where} printf("WHERE");
+{while} printf("WHILE");
+
+{func} printf("FUNC");
+{return_stmt} printf("RETURN");
+{read_temp} printf("READ_TEMP");
+{read_humidity} printf("READ_HUMIDITY");
+{read_air_pressure} printf("READ_AIR_PRESSURE");
+{read_air_quality} printf("READ_AIR_QUALITY");
+{read_light} printf("READ_LIGHT");
+{read_sound_level} printf("READ_SOUND_LEVEL");
+{read_timer} printf("READ_TIMER");
+{send_int} printf("SEND_INT");
+{read_int} printf("READ_INT");
+{connect} printf("CONNECT");
+
+{switchon1} printf("SWITCH_ON_1");
+{switchon2} printf("SWITCH_ON_2");
+{switchon3} printf("SWITCH_ON_3");
+{switchon4} printf("SWITCH_ON_4");
+{switchon5} printf("SWITCH_ON_5");
+{switchon6} printf("SWITCH_ON_6");
+{switchon7} printf("SWITCH_ON_7");
+{switchon8} printf("SWITCH_ON_8");
+{switchon9} printf("SWITCH_ON_9");
+{switchon10} printf("SWITCH_ON_10");
+
+{switchoff1} printf("SWITCH_OFF_1");
+{switchoff2} printf("SWITCH_OFF_2");
+{switchoff3} printf("SWITCH_OFF_3");
+{switchoff4} printf("SWITCH_OFF_4");
+{switchoff5} printf("SWITCH_OFF_5");
+{switchoff6} printf("SWITCH_OFF_6");
+{switchoff7} printf("SWITCH_OFF_7");
+{switchoff8} printf("SWITCH_OFF_8");
+{switchoff9} printf("SWITCH_OFF_9");
+{switchoff10} printf("SWITCH_OFF_10");
+
+
+
+{number} printf("NUMBER");
+{double_value} printf("DOUBLE_VALUE");
+{string_text} printf("STRING_TEXT");
+{comment_text} printf("COMMENT_TEXT");
+
+{array} printf("ARRAY");
+{int} printf("INT");
+{string} printf("STRING");
+{double} printf("DOUBLE");
+{connection} printf("CONNECTION");
+
+
 
 {lp} printf("LP");
 {rp} printf("RP");
@@ -42,9 +160,12 @@ while printf("WHILE");
 {minus} printf("MINUS");
 {multiply} printf("MULTIPLY");
 {divide} printf("DIVIDE");
+{comma} printf("COMMA");
+{and} printf("AND");
+{and_relation} printf("AND_RELATION");
+{or} printf("OR");
+{or_relation} printf("OR_RELATION");
 
-{comment} printf("COMMENT");
-{number} printf("NUMBER");
 {identifier} printf("IDENTIFIER");
 
 {less} printf("LESS");
