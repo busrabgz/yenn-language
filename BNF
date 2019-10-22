@@ -1,8 +1,0 @@
-<program> := <lbrace><stmts><rbrace>
-
-<stmts> := <stmts><stmt> | <stmt>
-
-<stmt> := <line_stmt><semi_column> | <block_stmt> | <comment>
-
-<line_stmt> :=
-

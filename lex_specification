@@ -1,0 +1,54 @@
+%option main
+
+
+digit [0-9]
+number [0-9]+
+identifier [a-z][a-z_]*
+
+plus \+
+minus \-
+multiply \*
+divide \/
+
+lp \(
+rp \)
+lsb \[
+rsb \]
+lbrace \{
+rbrace \}
+comment \#
+
+less \<
+greater \>
+less_eq (<=)
+greater_eq(>=)
+equal \=
+
+%%
+
+
+if printf("IF");
+else printf("ELSE");
+for printf("FOR");
+while printf("WHILE");
+
+{lp} printf("LP");
+{rp} printf("RP");
+{lsb} printf("LSB");
+{rsb} printf("RSB");
+{lbrace} printf("LBRACE");
+{rbrace} printf("RBRACE");
+{plus} printf("PLUS");
+{minus} printf("MINUS");
+{multiply} printf("MULTIPLY");
+{divide} printf("DIVIDE");
+
+{comment} printf("COMMENT");
+{number} printf("NUMBER");
+{identifier} printf("IDENTIFIER");
+
+{less} printf("LESS");
+{greater} printf("GREATER");
+{less_eq} printf("LESS_EQ");
+{greater_eq} printf("GREATER_EQ");
+{equal} printf("EQ");
