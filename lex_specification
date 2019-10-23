@@ -6,8 +6,8 @@ finish finish
 digit [0-9]
 double_value [0-9]+\.[0-9]+
 string string
-string_text \"[A-Za-z\!\‘\^\#\+\$\%\&\/\{\(\[\)\]\=\?\*\\\-\“\|\:\. ]*\"
-comment_text \#[A-Za-z\!\‘\^\#\+\$\%\&\/\{\(\[\)\]\=\?\*\\\-\“\|\:\. ]*\#
+string_text \"[A-Za-z\!\‘\^\#\+\$\%\&\/\{\(\[\)\]\=\?\*\\\-\“\|\:\.\, ]*\"
+comment_text \#[A-Za-z\!\‘\^\#\+\$\%\&\/\{\(\[\)\]\=\?\*\\\-\“\|\:\.\, ]*\#
 number [0-9]+
 identifier [a-z][a-z_0-9]*
 
@@ -30,6 +30,7 @@ with with
 while while
 
 func func
+call call
 return_stmt return
 read_temp read_temp
 read_humidity read_humidity
@@ -98,9 +99,12 @@ equal \=
 {for} printf("FOR");
 {in} printf("IN");
 {where} printf("WHERE");
+{with} printf("WITH");
 {while} printf("WHILE");
 
+
 {func} printf("FUNC");
+{call} printf("CALL");
 {return_stmt} printf("RETURN");
 {read_temp} printf("READ_TEMP");
 {read_humidity} printf("READ_HUMIDITY");

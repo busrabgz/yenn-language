@@ -1,0 +1,13 @@
+START
+    #Function declaration and call#
+
+    func tester( int a, string b )
+    //
+        int array arr = [ 4, 3 , a, 4, "test", b ]
+
+        return arr
+    \\
+
+    call tester()
+    
+FINISH
