@@ -3,7 +3,7 @@ START
 
     func tester( int a, string b )
     //
-        int array arr = [ 4, 3 , a, 4, "test", b ]
+        array arr = [ 4, 3 , a, 4, "test", b ]
 
         return arr
     \\

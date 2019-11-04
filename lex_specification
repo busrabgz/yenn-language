@@ -1,25 +1,26 @@
-%option main
+%{
+int lineCount = 1;
+%}
+
+newLine [\n]
 
 start start
 finish finish
 
-digit [0-9]
 double_value [0-9]+\.[0-9]+
-string string
 string_text \"[A-Za-z\!\‘\^\#\+\$\%\&\/\{\(\[\)\]\=\?\*\\\-\“\|\:\.\, ]*\"
 comment_text \#[A-Za-z\!\‘\^\#\+\$\%\&\/\{\(\[\)\]\=\?\*\\\-\“\|\:\.\, ]*\#
-number [0-9]+
+integer [0-9]+
 identifier [a-z][a-z_0-9]*
 
 plus \+
 minus \-
 multiply \*
 divide \/
+pow \^
 comma \,
-and \&
-and_relation \&\&
-or \|
-or_relation \|\|
+and \&\&
+or \|\|
 
 if if
 else else
@@ -42,6 +43,8 @@ read_timer read_timer
 send_int send_int
 read_int read_int
 connect connect
+scan scan
+print print
 
 switchon1 SwitchON1
 switchon2 SwitchON2
@@ -65,6 +68,7 @@ switchoff8 SwitchOFF8
 switchoff9 SwitchOFF9
 switchoff10 SwitchOFF10
 
+string string
 array array
 int int
 double double
@@ -74,8 +78,6 @@ lp \(
 rp \)
 lsb \[
 rsb \]
-lbrace \{
-rbrace \}
 
 block_start \/\/
 block_end \\\\
@@ -85,95 +87,98 @@ greater \>
 less_eq (<=)
 greater_eq (>=)
 equal \=
+
 %%
 
-{start} printf("START");
-{finish} printf("FINISH");
+{start} return(START);
+{finish} return(FINISH);
 
-{block_start} printf("BLOCK_START");
-{block_end} printf("BLOCK_END");
-
-
-{if} printf("IF");
-{else} printf("ELSE");
-{for} printf("FOR");
-{in} printf("IN");
-{where} printf("WHERE");
-{with} printf("WITH");
-{while} printf("WHILE");
+{block_start} return(BLOCK_START);
+{block_end} return(BLOCK_END);
 
 
-{func} printf("FUNC");
-{call} printf("CALL");
-{return_stmt} printf("RETURN");
-{read_temp} printf("READ_TEMP");
-{read_humidity} printf("READ_HUMIDITY");
-{read_air_pressure} printf("READ_AIR_PRESSURE");
-{read_air_quality} printf("READ_AIR_QUALITY");
-{read_light} printf("READ_LIGHT");
-{read_sound_level} printf("READ_SOUND_LEVEL");
-{read_timer} printf("READ_TIMER");
-{send_int} printf("SEND_INT");
-{read_int} printf("READ_INT");
-{connect} printf("CONNECT");
-
-{switchon1} printf("SWITCH_ON_1");
-{switchon2} printf("SWITCH_ON_2");
-{switchon3} printf("SWITCH_ON_3");
-{switchon4} printf("SWITCH_ON_4");
-{switchon5} printf("SWITCH_ON_5");
-{switchon6} printf("SWITCH_ON_6");
-{switchon7} printf("SWITCH_ON_7");
-{switchon8} printf("SWITCH_ON_8");
-{switchon9} printf("SWITCH_ON_9");
-{switchon10} printf("SWITCH_ON_10");
-
-{switchoff1} printf("SWITCH_OFF_1");
-{switchoff2} printf("SWITCH_OFF_2");
-{switchoff3} printf("SWITCH_OFF_3");
-{switchoff4} printf("SWITCH_OFF_4");
-{switchoff5} printf("SWITCH_OFF_5");
-{switchoff6} printf("SWITCH_OFF_6");
-{switchoff7} printf("SWITCH_OFF_7");
-{switchoff8} printf("SWITCH_OFF_8");
-{switchoff9} printf("SWITCH_OFF_9");
-{switchoff10} printf("SWITCH_OFF_10");
+{if} return(IF);
+{else} return(ELSE);
+{for} return(FOR);
+{in} return(IN);
+{where} return(WHERE);
+{with} return(WITH);
+{while} return(WHILE);
 
 
+{func} return(FUNC);
+{call} return(CALL);
+{return_stmt} return(RETURN);
+{read_temp} return(READ_TEMP);
+{read_humidity} return(READ_HUMIDITY);
+{read_air_pressure} return(READ_AIR_PRESSURE);
+{read_air_quality} return(READ_AIR_QUALITY);
+{read_light} return(READ_LIGHT);
+{read_sound_level} return(READ_SOUND_LEVEL);
+{read_timer} return(READ_TIMER);
+{send_int} return(SEND_INT);
+{read_int} return(READ_INT);
+{connect} return(CONNECT);
+{scan} return(SCAN);
+{print} return(PRINT);
 
-{number} printf("NUMBER");
-{double_value} printf("DOUBLE_VALUE");
-{string_text} printf("STRING_TEXT");
-{comment_text} printf("COMMENT_TEXT");
+{switchon1} return(SWITCH_ON_1);
+{switchon2} return(SWITCH_ON_2);
+{switchon3} return(SWITCH_ON_3);
+{switchon4} return(SWITCH_ON_4);
+{switchon5} return(SWITCH_ON_5);
+{switchon6} return(SWITCH_ON_6);
+{switchon7} return(SWITCH_ON_7);
+{switchon8} return(SWITCH_ON_8);
+{switchon9} return(SWITCH_ON_9);
+{switchon10} return(SWITCH_ON_10);
 
-{array} printf("ARRAY");
-{int} printf("INT");
-{string} printf("STRING");
-{double} printf("DOUBLE");
-{connection} printf("CONNECTION");
+{switchoff1} return(SWITCH_OFF_1);
+{switchoff2} return(SWITCH_OFF_2);
+{switchoff3} return(SWITCH_OFF_3);
+{switchoff4} return(SWITCH_OFF_4);
+{switchoff5} return(SWITCH_OFF_5);
+{switchoff6} return(SWITCH_OFF_6);
+{switchoff7} return(SWITCH_OFF_7);
+{switchoff8} return(SWITCH_OFF_8);
+{switchoff9} return(SWITCH_OFF_9);
+{switchoff10} return(SWITCH_OFF_10);
 
+{integer} return(INTEGER);
+{double_value} return(DOUBLE_VALUE);
+{string_text} return(STRING_TEXT);
+{comment_text} return(COMMENT_TEXT);
 
+{array} return(ARRAY);
+{int} return(INT);
+{string} return(STRING);
+{double} return(DOUBLE);
+{connection} return(CONNECTION);
 
-{lp} printf("LP");
-{rp} printf("RP");
-{lsb} printf("LSB");
-{rsb} printf("RSB");
-{lbrace} printf("LBRACE");
-{rbrace} printf("RBRACE");
-{plus} printf("PLUS");
-{minus} printf("MINUS");
-{multiply} printf("MULTIPLY");
-{divide} printf("DIVIDE");
-{comma} printf("COMMA");
-{and} printf("AND");
-{and_relation} printf("AND_RELATION");
-{or} printf("OR");
-{or_relation} printf("OR_RELATION");
+{lp} return(LP);
+{rp} return(RP);
+{lsb} return(LSB);
+{rsb} return(RSB);
+{plus} return(PLUS);
+{minus} return(MINUS);
+{multiply} return(MULTIPLY);
+{divide} return(DIVIDE);
+{pow} return(POW);
+{comma} return(COMMA);
+{and} return(AND);
+{or} return(OR);
 
-{identifier} printf("IDENTIFIER");
+{identifier} return(IDENTIFIER);
 
-{less} printf("LESS");
-{greater} printf("GREATER");
-{less_eq} printf("LESS_EQ");
-{greater_eq} printf("GREATER_EQ");
-{equal} printf("EQ");
+{less} return(LESS);
+{greater} return(GREATER);
+{less_eq} return(LESS_EQ);
+{greater_eq} return(GREATER_EQ);
+{equal} return(EQ);
+. return(INVALID);
+
+{newLine} {lineCount++;}
+
+%%
+
+int yywrap() { return 1; }

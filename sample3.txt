@@ -2,7 +2,7 @@ BEGIN
 
     #Test loops#
 
-    int array test_array = [ 1, 2, 3]
+    array test_array = [ 1, 2, 3]
 
     int sum = 0
 
