@@ -1,4 +1,4 @@
-BEGIN 
+START
     #Test if-else, primitive function calls#
 
     int a = 5
@@ -11,20 +11,60 @@ BEGIN
 
     if ( a > b )
     //
-        read_temp()
-        read_humidity ()
-        read_air_pressure ()
-        read_air_quality ()
-        read_light ()
-    \\
-    else
-    //
-        read_sound_level ( 5.12312 )
-        read_sound_level ( a )
-        read_timer ()
-        send_int ( cnnt1 , b )
-        send_int ( cnnt2, 5 )
-        read_int ( cnnt1 )
-    \\
+        int a = 3
+        int b = 4
 
+        for( int a = 3 where a < c with a = a + 1)
+        //
+            int a  = read_temp() * 2
+            b = b + 3
+        \\
+
+        for( int a = 3 where a < c with a = a + 1)
+        //
+            int a  = read_temp() * 2
+            b = b + 3
+
+            if( a == b)
+            //
+                if( a < z)
+                //
+                    print(z)
+                    if( a == z )
+                    //
+                        print(b)
+                    \\
+                    else
+                    //
+                        int a = scan( "Please enter a value" )
+                    \\ 
+                \\
+            \\
+            else
+            //
+                print(a)
+            \\
+        \\
+    
+        if ( a < b )
+        //
+            read_temp()
+            read_humidity()
+            read_air_pressure()
+            read_air_quality()
+            read_light()
+         
+            int a = 5
+                
+        \\
+        else
+        //
+            read_sound_level( 5.12312 )
+            read_sound_level( a )
+            read_timer()
+            send_int( cnnt1 , b )
+            send_int( cnnt2, 5 )
+            read_int( cnnt1 )
+        \\
+  \\  
 FINISH

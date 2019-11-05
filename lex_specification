@@ -1,11 +1,11 @@
 %{
-int lineCount = 1;
+    int lineCount = 1;
 %}
 
 newLine [\n]
 
-start start
-finish finish
+start START
+finish FINISH
 
 double_value [0-9]+\.[0-9]+
 string_text \"[A-Za-z\!\‘\^\#\+\$\%\&\/\{\(\[\)\]\=\?\*\\\-\“\|\:\.\, ]*\"
@@ -80,13 +80,14 @@ lsb \[
 rsb \]
 
 block_start \/\/
-block_end \\\\
+block_finish \\\\
 
 less \<
 greater \>
 less_eq (<=)
 greater_eq (>=)
 equal \=
+equal_comp \=\=
 
 %%
 
@@ -94,7 +95,7 @@ equal \=
 {finish} return(FINISH);
 
 {block_start} return(BLOCK_START);
-{block_end} return(BLOCK_END);
+{block_finish} return(BLOCK_FINISH);
 
 
 {if} return(IF);
@@ -175,9 +176,11 @@ equal \=
 {less_eq} return(LESS_EQ);
 {greater_eq} return(GREATER_EQ);
 {equal} return(EQ);
+{equal_comp} return(EQ_COMP);
+[ \r\t] ;
 . return(INVALID);
 
-{newLine} {lineCount++;}
+{newLine} {lineCount++; return(NEWLINE)}
 
 %%
 
