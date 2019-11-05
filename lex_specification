@@ -178,7 +178,6 @@ equal_comp \=\=
 {equal} return(EQ);
 {equal_comp} return(EQ_COMP);
 [ \r\t] ;
-. return(INVALID);
 
 {newLine} {lineCount++;}
 

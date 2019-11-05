@@ -351,8 +351,8 @@ static void yynoreturn yy_fatal_error ( const char* msg  );
 	(yy_hold_char) = *yy_cp; \
 	*yy_cp = '\0'; \
 	(yy_c_buf_p) = yy_cp;
-#define YY_NUM_RULES 78
-#define YY_END_OF_BUFFER 79
+#define YY_NUM_RULES 77
+#define YY_END_OF_BUFFER 78
 /* This struct is not used in this scanner,
    but its presence is necessary. */
 struct yy_trans_info
@@ -362,10 +362,10 @@ struct yy_trans_info
 	};
 static const flex_int16_t yy_accept[216] =
     {   0,
-        0,    0,   79,   76,   75,   77,   76,   76,   76,   56,
+        0,    0,   78,   77,   75,   76,   77,   77,   77,   56,
        57,   62,   60,   65,   61,   63,   47,   69,   73,   70,
-       76,   76,   58,   76,   59,   64,   68,   68,   68,   68,
-       68,   68,   68,   68,   68,   68,   68,   76,    0,   49,
+       77,   77,   58,   77,   59,   64,   68,   68,   68,   68,
+       68,   68,   68,   68,   68,   68,   68,   77,    0,   49,
         0,   50,   66,    3,    0,   47,   71,   74,   72,    0,
         0,    0,    4,   68,   68,   68,   68,   68,   68,   68,
        68,    5,    8,   68,   68,   68,   68,   68,   68,   68,
@@ -1242,22 +1242,17 @@ YY_RULE_SETUP
 ;
 	YY_BREAK
 case 76:
+/* rule 76 can match eol */
 YY_RULE_SETUP
-#line 181 "lex_specification"
-return(INVALID);
-	YY_BREAK
-case 77:
-/* rule 77 can match eol */
-YY_RULE_SETUP
-#line 183 "lex_specification"
+#line 182 "lex_specification"
 {lineCount++;}
 	YY_BREAK
-case 78:
+case 77:
 YY_RULE_SETUP
-#line 185 "lex_specification"
+#line 184 "lex_specification"
 ECHO;
 	YY_BREAK
-#line 1261 "lex.yy.c"
+#line 1256 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -2262,7 +2257,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 185 "lex_specification"
+#line 184 "lex_specification"
 
 
 int yywrap() { return 1; }
