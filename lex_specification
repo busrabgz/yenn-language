@@ -180,7 +180,7 @@ equal_comp \=\=
 [ \r\t] ;
 . return(INVALID);
 
-{newLine} {lineCount++; return(NEWLINE)}
+{newLine} {lineCount++;}
 
 %%
 

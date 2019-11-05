@@ -80,7 +80,6 @@
 %token EQ_COMP
 %token INVALID
 %token POW
-%token NEWLINE
 
 %start program
 
@@ -129,7 +128,7 @@ array_init :  LSB array_elements RSB
 
 array_elements : array_elements COMMA array_element | array_element
 
-array_element : INTEGER | DOUBLE_VALUE | STRING_TEXT
+array_element : INTEGER | DOUBLE_VALUE | STRING_TEXT | IDENTIFIER
 
 var_declaration : type_id IDENTIFIER | ARRAY IDENTIFIER
 
