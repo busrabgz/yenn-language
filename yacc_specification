@@ -148,7 +148,7 @@ non_primitive_func_call : CALL IDENTIFIER LP parameter_list_on_call RP | CALL ID
 
 parameter_list_on_call : rside |  parameter_list_on_call COMMA rside
 
-return_stmt : RETURN IDENTIFIER | RETURN DOUBLE_VALUE | RETURN INTEGER | RETURN STRING
+return_stmt : RETURN IDENTIFIER | RETURN DOUBLE_VALUE | RETURN INTEGER | RETURN STRING | RETURN array_init
 
 parameter_list : var_declaration | parameter_list COMMA var_declaration
 

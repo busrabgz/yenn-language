@@ -19,10 +19,18 @@ START
     #function declaration#
     func tester( int a, string text )
     //
-        array arr = [ 4, 3 , a, 4, "test", text ]
+        array arr = [ 4, 3.0 , a, 4, "test", text ]
 
-        return arr
+        if ( a == 5)
+        //
+            return arr
+        \\
+        else
+        //
+            return [ 1, 2, 3, 4, 5.0, "test", text ]
+        \\
     \\
+
 
     call tester(a, text)
     array arr2 = call tester(a, text)
