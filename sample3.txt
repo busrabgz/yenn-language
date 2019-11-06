@@ -1,0 +1,31 @@
+BEGIN
+
+    #Test loops#
+
+    array test_array = [ 1, 2, 3]
+
+    int sum = 0
+
+    int second_loop_sum = 0
+
+    int while_loop_sum = 0
+
+    #Extended for loop#
+    for (single_element in test_array)
+    //
+        sum = sum + single_element
+    \\
+
+    #Traditional for loop#
+    for ( int i = 0 where i < 5 with i = i + 1)
+    //
+        second_loop_sum = second_loop_sum + i
+    \\
+
+    #While loop test#
+    while ( while_loop_sum < 10)
+    //
+        while_loop_sum = while_loop_sum + 1
+    \\
+
+FINISH

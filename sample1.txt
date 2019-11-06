@@ -1,0 +1,120 @@
+START
+    #Test program#
+
+    int a = 5
+    int b = 3
+
+    string text = "aaa"
+    string url = "https://www.facebook.com"
+
+    connection cnnt1 = connect("https://www.google.com")
+    connection cnnt2 = connect(url)
+
+    #input#
+    int c = scan( "Please enter a value" )
+
+    #output#
+    print(c)
+
+    #function declaration#
+    func tester( int a, string text )
+    //
+        array arr = [ 4, 3.0 , a, 4, "test", text ]
+
+        if ( a == 5)
+        //
+            return arr
+        \\
+        else
+        //
+            return [ 1, 2, 3, 4, 5.0, "test", text ]
+        \\
+    \\
+
+
+    call tester(a, text)
+    array arr2 = call tester(a, text)
+
+    #unmatched if#
+    if( a < read_temp() * 5)
+    //
+        int a  = read_temp() * 5
+        SwitchON1
+        SwitchON2
+        SwitchON3
+        SwitchON4
+        SwitchON5
+        SwitchON6
+        SwitchON7
+        SwitchON8
+        SwitchON9
+        SwitchON10
+
+        SwitchOFF1
+        SwitchOFF2
+        SwitchOFF3
+        SwitchOFF4
+        SwitchOFF5
+        SwitchOFF6
+        SwitchOFF7
+        SwitchOFF8
+        SwitchOFF9
+        SwitchOFF10
+    \\
+
+    #Extended for loop#
+    for (single_element in test_array)
+    //
+        sum = sum + single_element
+    \\
+
+    #Traditional for loop#
+    for ( int i = 0 where i < 5 with i = i + 1)
+    //
+        second_loop_sum = second_loop_sum + i
+    \\
+
+    int while_loop_sum = 0
+
+    #While loop test#
+    while ( while_loop_sum < 10)
+    //
+        while_loop_sum = while_loop_sum + 1
+    \\
+
+    double hum = 0
+    double press = 0
+    double qua = 0
+    double light = 0
+    double sound = 0
+    double timer = 0
+    int num = 0
+
+    if( a == b)
+    //
+        int b = 4
+
+        for( int a = 3 where a < b with a = a + 1)
+        //
+            int a  = read_temp() * 2
+            b = b + 3
+        \\
+    \\
+    else
+    //
+        hum = read_humidity()
+        press = read_air_pressure()
+        qua = read_air_quality()
+        light = read_light()
+         
+        if( a >= b)
+        //
+            sound= read_sound_level( 5.12312 )
+            sound = read_sound_level( a )
+            timer = read_timer()
+            send_int( cnnt1 , b )
+            send_int( cnnt2, 5 )
+            num = read_int( cnnt1 )
+        \\
+    \\
+FINISH
