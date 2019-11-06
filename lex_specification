@@ -1,5 +1,8 @@
 %{
     int lineCount = 1;
+    #include <stdio.h>
+    #include "y.tab.h"
+    void yyerror(char *);
 %}
 
 newLine [\n]
@@ -183,4 +186,4 @@ equal_comp \=\=
 
 %%
 
-int yywrap() { return 1; }
+int yywrap( void ) { return 1; }
