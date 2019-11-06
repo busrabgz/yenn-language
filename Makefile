@@ -9,11 +9,11 @@ all: parser clean
 parser: y.tab.c
 		$(CC) -o parser y.tab.c
 
-y.tab.c y.tab.h: yacc_specification lex.yy.c
-		$(YACC) -v yacc_specification
+y.tab.c y.tab.h: CS315f19_group28.yacc lex.yy.c
+		$(YACC) -v CS315f19_group28.yacc
 
-lex.yy.c: lex_specification 
-		$(LEX) lex_specification
+lex.yy.c: CS315f19_group28.lex 
+		$(LEX) CS315f19_group28.lex
 
 clean:
 	-rm -f *.o *.output *.tab.* lex.yy.c
