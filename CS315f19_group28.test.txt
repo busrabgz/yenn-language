@@ -81,6 +81,7 @@ START
     //
         while_loop_sum = while_loop_sum + 1
     \\
+    print( while_loop_sum )
 
     double hum = 0
     double press = 0
@@ -92,12 +93,14 @@ START
 
     if( a == b)
     //
-        int b = 4
+        int c = 4
+	double temp_times_two = 0
 
-        for( int a = 3 where a < b with a = a + 1)
+        for( int d = 3 where d < c with d = d + 1)
         //
-            int a  = read_temp() * 2
+            temp_times_two  = read_temp() * 2
             b = b + 3
+	    print( temp_times_two )
         \\
     \\
     else
